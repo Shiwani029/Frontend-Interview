@@ -11,21 +11,25 @@ export default function BlogList({ onSelect }: Props) {
   if (isError) return <div className="p-4 text-red-500">Error loading blogs</div>
 
   return (
-    <div className="w-1/3 border-r h-screen overflow-y-auto p-4">
-      <h2 className="text-xl font-semibold mb-4">Latest Articles</h2>
+    <div className="p-6 bg-gray-50 h-full overflow-y-auto">
+      <h2 className="text-2xl font-bold mb-6">Latest Articles</h2>
 
       <div className="space-y-4">
         {data?.map((blog) => (
           <div
             key={blog.id}
             onClick={() => onSelect(blog.id)}
-            className="border rounded-lg p-3 hover:bg-gray-100 cursor-pointer"
+            className="bg-white rounded-xl p-4 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all cursor-pointer"
           >
-            <p className="text-sm text-blue-600">
+            <p className="text-xs uppercase tracking-wide text-blue-600 mb-1">
               {blog.category.join(", ")}
             </p>
-            <h3 className="font-medium">{blog.title}</h3>
-            <p className="text-sm text-gray-600">
+
+            <h3 className="text-lg font-semibold text-gray-800">
+              {blog.title}
+            </h3>
+
+            <p className="text-sm text-gray-500 mt-1">
               {blog.description}
             </p>
           </div>
